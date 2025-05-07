@@ -1,77 +1,77 @@
-# Webpack Template
+# Atmograph
 
-This is a customizable Webpack 5 template designed for efficient project setup and development. It includes configurations for both development and production environments, supporting modern JavaScript, CSS, and HTML workflows.
+**Atmograph** is a typography-focused, weather-inspired idea generator. It fetches your local weather and responds with a poetic description of the conditions and a personalized suggestion of what to do with your day. It’s less about forecasting and more about feeling. If the sky can shift your mood, maybe this little app can too.
 
-## Features
 
-- **Development and Production Builds**: Separate configurations for development (`webpack.dev.js`) and production (`webpack.prod.js`) environments.
-- **Asset Management**: Handles JavaScript, CSS, and HTML files with appropriate loaders and plugins.
-- **Development Server**: Includes a development server with live reloading for a streamlined development experience.
+Think of it as a minimalist mood companion—one that listens to the sky and answers in sentences.
 
-## Getting Started
+---
 
-### Installation
+## 🌤 What It Does
 
-1. **Clone the Repository**:
+- Gets your **current geolocation**
+- Fetches real-time **weather data** via [Visual Crossing](https://www.visualcrossing.com/)
+- Reverse-geocodes your **city name** using [OpenCage](https://opencagedata.com/)
+- Displays:
+  - Current temperature
+  - Location
+  - A poetic weather description
+  - A curated activity idea tailored to the conditions
 
-   ```bash
-   git clone https://github.com/heavy-goose/webpack-template.git
-   ```
+All presented in clean, large, serif typography over a dark background—with zero images, icons, or distractions.
 
-2. **Navigate to the Project Directory**:
+---
 
-   ```bash
-   cd webpack-template
-   ```
+## 🛠 How to Use
 
-3. **Install Dependencies**:
+1. Create a `public/secure.json` file (⚠️ this file is **.gitignored** for security):
 
-   ```bash
-   npm install
-   ```
+```json
+{
+  "visualCrossingApiKey": "YOUR_VISUAL_CROSSING_API_KEY",
+  "openCageApiKey": "YOUR_OPENCAGE_API_KEY"
+}
+```
 
-## Usage
+> ⚠️ **Important Note**:  
+> API keys are not provided in this repo for security reasons.  
+> While storing them in a JSON file is **not secure**, it adds a minor layer of obfuscation and is sufficient for this purely client-side portfolio project. For production, you'd use a server-side proxy or environment variables.
 
-### Development Server
-
-To start the development server with live reloading:
+2. Install dependencies & run (if using bundler like Webpack/Vite):
 
 ```bash
+npm install
 npm run dev
 ```
 
-This will serve the project at `http://localhost:8080/`.
-
-### Building for Production
-
-To create a production build:
-
-
-```bash
-npm run build
-```
-
-The output will be in the `dist` directory, ready for deployment.
-
-## Project Structure
-
+## 📁 Project Structure
 
 ```
-webpack-template/
-├── src/
-│   ├── index.js       # Main JavaScript entry point
-│   ├── style.css      # Main CSS file
-│   └── index.html     # HTML template
-├── webpack.config.js  # Common Webpack configuration
-├── webpack.dev.js     # Development-specific configuration
-├── webpack.prod.js    # Production-specific configuration
-├── package.json       # Project metadata and scripts
-└── README.md          # This file
+/public
+  secure.json          ← your API keys (not committed). This file is to be created by you.
+  secure.example.json  ← example structure for secure.json
+  activities.json      ← curated suggestions per condition
+  descriptions.json    ← poetic descriptions of each condition
+/src
+  index.js             ← core logic
+  styles.css           ← dark-mode typography styling
+  reset.css            ← my css reset
+  
 ```
 
+---
 
-## Customization
+## 🚀 Features To Be Improved / Added
 
-- **Entry Points**: Modify the `entry` field in `webpack.config.js` to change the main entry point.
-- **Loaders and Plugins**: Adjust loaders and plugins in the Webpack configuration files to suit your project's needs.
-- **Development Server Settings**: Configure the development server settings in `webpack.dev.js`.
+### 🔧 Technical
+- Replace naive `getActivity()` with a **non-repeating shuffle** queue
+- Extract services (`WeatherService`, `LocationService`) for modularity
+- Add loading state / error UI for failed geolocation or API fetches
+- Normalize condition strings more robustly (e.g. trim, lowercase, aliasing)
+- Consider replacing JSON key storage with a more secure pattern
+
+### 🎨 UX / Aesthetic
+- Add dark/light mode toggle
+- Animate transitions between weather ideas
+- Dynamically change highlight colors based on weather tone
+- Responsive layout improvements for ultra-small screens
