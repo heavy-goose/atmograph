@@ -20,6 +20,8 @@ Think of it as a minimalist mood companion—one that listens to the sky and ans
 
 All presented in clean, large, serif typography over a dark background—with zero images, icons, or distractions.
 
+![Screenshot of Atmograph](atmograph_screenshot.png)
+*Above: Atmograph with a overcast-based mood suggestion*
 ---
 
 ## 🛠 How to Use
