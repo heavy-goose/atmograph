@@ -1,3 +1,155 @@
+/* === Base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    background-color: #0d0d0d;
+    color: #f0f0f0;
+    font-family: 'Aleo', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
+    padding: 20px 2rem;
+    line-height: 1.6;
+    gap: 10px;
+    text-align: left;
+}
+
+/* === Layout Sections === */
+.header {
+    text-align: right;
+}
+
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 4rem;
+    font-weight: 200;
+    text-wrap: wrap;
+}
+
+.footer {
+    text-align: center;
+}
+
+/* === Dynamic Text Styling === */
+.temperature {
+    color: #ff6ec7;
+    font-weight: 350;
+    letter-spacing: 0.3rem;
+}
+
+#location {
+    font-style: italic;
+    color: #feca57;
+}
+
+#description {
+    color: #54a0ff;
+    font-weight: 300;
+}
+
+#activity {
+    text-shadow: 1px 1px #f0f0f080;
+}
+
+.idea {
+    color: #ff6b6b;
+    font-size: 3.6rem;
+    font-weight: 350;
+}
+
+.small {
+    font-size: 3.4rem;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+/* === Button Styling === */
+#reroll-btn {
+    background-color: #f0f0f0;
+    color: #0d0d0d;
+    font-size: 2.5rem;
+    font-weight: 350;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 3px;
+    box-shadow: -10px -5px 0px #f0f0f09d,
+        10px 5px 0px #f0f0f09d;
+    align-self: flex-end;
+    position: relative;
+    right: 40px;
+    transition: box-shadow 0.2s ease-in-out,
+        background-color 0.5s ease-out;
+}
+
+#reroll-btn:hover {
+    background-color: #fae0f0;
+    box-shadow: -3px -3px 1px #ff6ec7,
+        3px 3px 1px #00d2d3;
+}
+
+#reroll-btn:active {
+    background-color: #f0f0f036;
+    color: #f0f0f0;
+}
+
+/* === Links === */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f0f0f077;
+}
+
+/* === Responsive Type Scaling === */
+@media only screen and (max-width: 1250px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    :root {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    :root {
+        font-size: 11px;
+    }
+
+    #reroll-btn {
+        align-self: auto;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    :root {
+        font-size: 9px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    :root {
+        font-size: 8px;
+    }
 }
