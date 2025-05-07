@@ -22,6 +22,7 @@ All presented in clean, large, serif typography over a dark background—with ze
 
 ![Screenshot of Atmograph](atmograph_screenshot.png)
 *Above: Atmograph with a overcast-based mood suggestion*
+
 ---
 
 ## 🛠 How to Use
